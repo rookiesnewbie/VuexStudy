@@ -16,8 +16,24 @@ const routes = [
   },
    {
       path: '/mapState',
-      name: 'count',
+      name: 'mapState',
       component: resolve => require(['../components/CountVuexMapstate'], resolve),
+  },
+   {
+      path: '/mapGetters',
+      name: 'mapGetters',
+      component: resolve => require(['../components/CountVuexMapGetters'], resolve),
+  }, 
+  
+  {
+      path: '/mapMutations',
+      name: 'mapMutations',
+      component: resolve => require(['../components/CountVuexMapMutations'], resolve),
+  },
+    {
+      path: '/mapActions',
+      name: 'mapActions',
+      component: resolve => require(['../components/CountVuexMapActions'], resolve),
   },
 ]
 
