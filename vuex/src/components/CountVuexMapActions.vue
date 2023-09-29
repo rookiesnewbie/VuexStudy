@@ -8,15 +8,15 @@
             <option value="3">3</option>
         </select>
         <hr>
-        <!-- <button @click="increment">++</button>
-        <button @click="decrement">--</button>
-        <button @click="incrementOne">为奇数则加1</button>
-        <button @click="incrementTow">为偶数则加2</button> -->
+        <button @click="jia(num)">++</button>
+        <button @click="jian(num)">--</button>
+        <button @click="jiaOne(num)">为奇数则加1</button>
+        <button @click="jiaTow(num)">为偶数则加2</button>
 
-        <button @click="INCREMENT(num)">++</button>
-        <button @click="DECREMENT(num)">--</button>
-        <button @click="INCREMENTONE(num)">为奇数则加1</button>
-        <button @click="INCREMENTTOW(num)">为偶数则加2</button>
+        <!-- <button @click="increment(num)">++</button>
+        <button @click="decrement(num)">--</button>
+        <button @click="incrementOne(num)">为奇数则加1</button>
+        <button @click="incremenTtow(num)">为偶数则加2</button> -->
     </div>
 </template>
 
@@ -36,29 +36,14 @@ export default {
     },
 
     methods: {
-        // ...mapMutations({ jia: 'INCREMENT', jian: 'DECREMENT', jianOne: 'INCREMENTONE', jianTow: 'INCREMENTTOW' }),
 
-        ...mapMutations( ['INCREMENT', 'DECREMENT',  'INCREMENTONE',  'INCREMENTTOW'] ),
+        //数组的写法
+        // ...mapActions( ['increment', 'decrement',  'incrementOne',  'incrementTow'] ),
+
+        // 对象的写法
+        ...mapActions({jia:'increment', jian:'decrement', jiaOne:'incrementOne', jiaTow:'incrementTow'}),
 
 
-        increment() {
-            this.jia(this.num);
-        },
-
-        decrement() {
-            this.jian(this.num)
-        },
-
-        incrementOne() {
-            if (this.$store.state.sum % 2 != 0) {
-                this.jianOne(1)
-            }
-        },
-        incrementTow() {
-            if (this.$store.state.sum % 2 == 0) {
-                this.jianTow(2)
-            }
-        },
     },
 
     mounted() {
