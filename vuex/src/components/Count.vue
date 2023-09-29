@@ -43,6 +43,10 @@ export default {
           this.sum += 2
       }
     },
+  },
+  
+  mounted() {
+    console.log("app", this);
   }
 }
 </script>
