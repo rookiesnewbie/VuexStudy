@@ -5,9 +5,14 @@ Vue.use(Router)
 
 const routes = [
   {
-      path: '/',
+      path: '/vue',
       name: 'count',
       component: resolve => require(['../components/Count'], resolve),
+  },
+   {
+      path: '/vuex',
+      name: 'countVuex',
+      component: resolve => require(['../components/CountVuex'], resolve),
   }
 ]
 
