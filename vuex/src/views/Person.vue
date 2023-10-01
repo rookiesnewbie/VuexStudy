@@ -27,10 +27,10 @@ export default {
     },
 
     computed: {
-        ...mapState(['sum']),
+        ...mapState('count',['sum']),
         // ...mapState(['personList']),
-        ...mapGetters(['personList']),
-        ...mapGetters(['bigSum']),
+        ...mapGetters('person',['personList']),
+        ...mapGetters('count',['bigSum']),
 
         // personList() {
         //     return this.$store.state.personList
@@ -42,7 +42,7 @@ export default {
         add() {
 
             const personObj = { id: nanoid(), name: this.name }
-            this.$store.commit('ADDPERSON', personObj)
+            this.$store.commit('person/ADDPERSON', personObj)
             this.name = ''
 
         }

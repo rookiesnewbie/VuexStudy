@@ -8,15 +8,15 @@
             <option value="3">3</option>
         </select>
         <hr>
-        <button @click="jia(num)">++</button>
+        <!-- <button @click="jia(num)">++</button>
         <button @click="jian(num)">--</button>
         <button @click="jiaOne(num)">为奇数则加1</button>
-        <button @click="jiaTow(num)">为偶数则加2</button>
+        <button @click="jiaTow(num)">为偶数则加2</button> -->
 
-        <!-- <button @click="increment(num)">++</button>
+        <button @click="increment(num)">++</button>
         <button @click="decrement(num)">--</button>
         <button @click="incrementOne(num)">为奇数则加1</button>
-        <button @click="incremenTtow(num)">为偶数则加2</button> -->
+        <button @click="incremenTtow(num)">为偶数则加2</button>
 
         <h2>Person组件的personList人数信息如下：</h2>
         <li>
@@ -47,18 +47,18 @@ export default {
     },
 
     computed: {
-        ...mapState(['sum']),
-        ...mapGetters({ bigSum: 'bigSum' }),
-        ...mapGetters(['personList'])
+        ...mapState('count',['sum']),
+        ...mapGetters('count',{ bigSum: 'bigSum' }),
+        ...mapGetters('person',['personList'])
     },
 
     methods: {
 
         //数组的写法
-        // ...mapActions( ['increment', 'decrement',  'incrementOne',  'incrementTow'] ),
+        ...mapActions('count', ['increment', 'decrement',  'incrementOne',  'incrementTow'] ),
 
         // 对象的写法
-        ...mapActions({ jia: 'increment', jian: 'decrement', jiaOne: 'incrementOne', jiaTow: 'incrementTow' }),
+        // ...mapActions('count',{ jia: 'increment', jian: 'decrement', jiaOne: 'incrementOne', jiaTow: 'incrementTow' }),
 
 
     },
