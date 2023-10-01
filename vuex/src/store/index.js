@@ -18,6 +18,10 @@ const actions = {
     },
     incrementTow(context,state) {
         context.commit('INCREMENTTOW',state)
+    },
+
+    addPersonList(context, state) {
+        context.commit('ADDPERSON',state)
     }
 	  
 }
@@ -37,12 +41,21 @@ const mutations = {
     },
     INCREMENTTOW(commit,state) {
         commit.sum += state
+    },
+
+    ADDPERSON(commit, state) { 
+        console.log(commit,state);
+        commit.personList.unshift(state)
     }
 }
 
 //准备state——用于存储数据
 const state = {
-  sum: 0
+    sum: 0,
+    personList: [{
+        id: '001',
+        name: 'John'
+    }]
 }
 
 
@@ -51,7 +64,8 @@ const getters = {
     // sum: state => state.sum * 10, //或
     bigSum(state) {
         return state.sum * 10
-    }
+    },
+    personList: state => state.personList
 }
 
 export default new Vuex.Store({

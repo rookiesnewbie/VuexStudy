@@ -35,6 +35,13 @@ const routes = [
       name: 'mapActions',
       component: resolve => require(['../components/CountVuexMapActions'], resolve),
   },
+    
+    {
+      path: '/',
+      name: 'count',
+      component: resolve => require(['../../src/views/Count'], resolve),
+  },
+  
 ]
 
 const router =  new Router({
